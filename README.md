@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: update-node-versions@v1
+      - uses: hongaar/update-node-versions@v1
       - uses: peter-evans/create-pull-request@v4
 ```
 
@@ -89,7 +89,7 @@ updaters are enabled. These updaters are available:
 Example:
 
 ```yaml
-- uses: update-node-versions@v1
+- uses: hongaar/update-node-versions@v1
   with:
     versions: |
       current

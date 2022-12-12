@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: update-node-versions@v1
+      - uses: "."
       - uses: peter-evans/create-pull-request@v4
