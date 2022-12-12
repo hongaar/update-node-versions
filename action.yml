@@ -1,0 +1,13 @@
+name: update-node-versions
+description: Description of update-node-versions action
+inputs:
+  gh-token:
+    description: GitHub token with read access to the repository
+    required: false
+    default: ${{ github.token }}
+outputs:
+  result:
+    description: Some result from this action
+runs:
+  using: node16
+  main: dist/index.js

@@ -1,0 +1,66 @@
+{
+  "name": "update-node-versions",
+  "version": "0.0.0",
+  "repository": "github:hongaar/update-node-versions",
+  "license": "MIT",
+  "author": "Joram van den Boezem <joram@vandenboezem.nl>",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn build:typecheck && yarn build:bundle",
+    "build:bundle": "esbuild --bundle --platform=node --target=es2022 --outdir=dist src/index.ts",
+    "build:typecheck": "tsc --noEmit",
+    "build:watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "doctoc": "doctoc README.md",
+    "format": "prettier --write --ignore-unknown .",
+    "format:check": "prettier --check --ignore-unknown .",
+    "prepublish": "yarn build",
+    "release": "semantic-release",
+    "test": "echo 'not implemented'",
+    "todos": "leasot --exit-nicely --reporter markdown --ignore \"**/node_modules\" \"**/*.ts\" > TODO.md"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "@actions/core": "1.10.0",
+    "@actions/github": "5.1.1"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "6.0.2",
+    "@semantic-release/git": "10.0.1",
+    "@types/node": "18.11.13",
+    "@types/prettier": "^2",
+    "doctoc": "2.2.1",
+    "esbuild": "0.16.4",
+    "husky": "8.0.2",
+    "leasot": "13.2.0",
+    "lint-staged": "13.1.0",
+    "moker": "0.8.0",
+    "prettier": "2.8.1",
+    "semantic-release": "19.0.5",
+    "semantic-release-yarn": "0.3.0",
+    "typescript": "4.9.4"
+  },
+  "packageManager": "yarn@3.3.0",
+  "moker": {
+    "plugins": [
+      "prettier",
+      "husky",
+      "lint-staged",
+      "github-actions",
+      "semantic-release",
+      "devcontainer",
+      "doctoc",
+      "todos",
+      "typescript",
+      "esbuild"
+    ]
+  }
+}
