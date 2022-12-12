@@ -1,6 +1,6 @@
 {
   "name": "update-node-versions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": "github:hongaar/update-node-versions",
   "license": "MIT",
   "author": "Joram van den Boezem <joram@vandenboezem.nl>",
