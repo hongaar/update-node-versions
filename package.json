@@ -4,16 +4,13 @@
   "repository": "github:hongaar/update-node-versions",
   "license": "MIT",
   "author": "Joram van den Boezem <joram@vandenboezem.nl>",
-  "type": "module",
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
   "files": [
-    "dist",
-    "types"
+    "dist"
   ],
   "scripts": {
     "build": "yarn clean && yarn build:typecheck && yarn build:bundle",
-    "build:bundle": "esbuild --bundle --platform=node --target=es2022 --format=esm --outdir=dist src/index.ts",
+    "build:bundle": "esbuild --bundle --platform=node --target=es2020 --outdir=dist src/index.ts",
     "build:typecheck": "tsc --noEmit",
     "build:watch": "tsc --watch",
     "clean": "rm -rf dist",
