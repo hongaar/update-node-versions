@@ -1,25 +1,16 @@
-import { getInput, info, setFailed, setOutput } from "@actions/core";
-import { context, getOctokit } from "@actions/github";
+import { getMultilineInput, info, setFailed, setOutput } from "@actions/core";
 
 async function run() {
-  const ghToken = getInput("gh-token");
+  const versionsInput = getMultilineInput("versions");
 
-  if (!ghToken) {
-    throw new Error("The GitHub token is missing");
-  }
+  console.log({ versionsInput });
 
-  const octokit = getOctokit(ghToken);
-  const { owner, repo } = context.repo;
+  const versionsOutput = [14, 16, 18];
 
-  const response = await octokit.rest.repos.getReadme({
-    owner,
-    repo,
-  });
-
-  info("Action complete");
+  info("Updating Node versions complete");
 
   return {
-    result: response.data.content,
+    versions: versionsOutput,
   };
 }
 

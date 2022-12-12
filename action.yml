@@ -1,13 +1,32 @@
 name: update-node-versions
 description: Description of update-node-versions action
 inputs:
-  gh-token:
-    description: GitHub token with read access to the repository
+  versions:
+    description: Node versions to select
+    required: true
+    default: |
+      lts
+      lts/-1
+      lts/-2
+  versions.filter-eol:
+    description: Filter out Node versions which are end-of-life
     required: false
-    default: ${{ github.token }}
+    default: true
+  updaters.workflows:
+    description: Update GitHub workflows
+    required: false
+    default: true
+  updaters.workflows.variable:
+    description: Update GitHub workflows
+    required: false
+    default: node-version
+  updaters.engines:
+    description: Update package.json `engines`
+    required: false
+    default: true
 outputs:
-  result:
-    description: Some result from this action
+  versions:
+    description: The Node versions to update to as stringified JSON array
 runs:
   using: node16
   main: dist/index.js
