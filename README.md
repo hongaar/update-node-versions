@@ -1,4 +1,4 @@
-# `update-node-versions` ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hongaar/update-node-versions?label=latest%20version&sort=semver)
+# update-node-versions ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hongaar/update-node-versions?label=latest%20version&sort=semver)
 
 **A GitHub Action to automatically update you repository to the latest Node
 versions. Currently supports updating GitHub workflows and package.json
