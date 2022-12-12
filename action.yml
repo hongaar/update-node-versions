@@ -1,4 +1,5 @@
 name: update-node-versions
+author: Joram van den Boezem
 description: Description of update-node-versions action
 inputs:
   versions:
@@ -30,3 +31,6 @@ outputs:
 runs:
   using: node16
   main: dist/index.js
+branding:
+  icon: arrow-up
+  color: green

@@ -1,9 +1,25 @@
-import { getMultilineInput, info, setFailed, setOutput } from "@actions/core";
+import {
+  getInput,
+  getMultilineInput,
+  info,
+  setFailed,
+  setOutput,
+} from "@actions/core";
 
 async function run() {
-  const versionsInput = getMultilineInput("versions");
+  const versions = getMultilineInput("versions");
+  const versionsFilterEol = getInput("versions.filter-eol");
+  const updatersWorkflows = getInput("updaters.workflows");
+  const updatersWorkflowsVariable = getInput("updaters.workflows.variable");
+  const updatersEngines = getInput("updaters.engines");
 
-  console.log({ versionsInput });
+  console.log({
+    versions,
+    versionsFilterEol,
+    updatersWorkflows,
+    updatersWorkflowsVariable,
+    updatersEngines,
+  });
 
   const versionsOutput = [14, 16, 18];
 

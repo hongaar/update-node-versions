@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "yarn clean && yarn build:typecheck && yarn build:bundle",
-    "build:bundle": "esbuild --bundle --platform=node --target=es2022 --outdir=dist src/index.ts",
+    "build:bundle": "esbuild --bundle --platform=node --target=es2022 --format=esm --outdir=dist src/index.ts",
     "build:typecheck": "tsc --noEmit",
     "build:watch": "tsc --watch",
     "clean": "rm -rf dist",
