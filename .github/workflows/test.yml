@@ -1,14 +1,10 @@
-name: update-node-versions
+name: test
 
 on:
-  schedule:
-    - cron: "30 7 * * 0"
-  push:
-    branches:
-      - main
+  pull_request:
 
 jobs:
-  update-node-versions:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,6 +15,6 @@ jobs:
       - run: yarn install
       - run: yarn build
       - uses: ./
-      - uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.GH_PAT }}
+      - run: |
+          find .github/workflows/ -type f | xargs tail -n +1
+          cat package.json
