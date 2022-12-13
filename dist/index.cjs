@@ -28774,10 +28774,10 @@ var require_date_fns = __commonJS({
 });
 
 // src/index.ts
-var import_core6 = __toESM(require_core(), 1);
+var import_core8 = __toESM(require_core(), 1);
 
 // src/updateNodeVersions.ts
-var import_core5 = __toESM(require_core(), 1);
+var import_core7 = __toESM(require_core(), 1);
 
 // node_modules/p-pipe/index.js
 function pPipe(...functions) {
@@ -29359,6 +29359,7 @@ var hasProtoTrim = typeof String.prototype.trim === "function";
 var import_semver6 = __toESM(require_semver2(), 1);
 
 // src/updaters/githubWorkflows.ts
+var import_core = __toESM(require_core(), 1);
 var import_yaml_updater = __toESM(require_yaml_updater(), 1);
 
 // node_modules/js-yaml/dist/js-yaml.mjs
@@ -32006,7 +32007,6 @@ var safeLoadAll = renamed("safeLoadAll", "loadAll");
 var safeDump = renamed("safeDump", "dump");
 
 // src/updaters/githubWorkflows.ts
-var import_node_console = require("console");
 var import_promises = require("fs/promises");
 var import_node_path = require("path");
 var WORKFLOWS_DIRECTORY = ".github/workflows";
@@ -32031,7 +32031,7 @@ async function githubWorkflows(versions2, variable, cwd = process.cwd()) {
     for (const jobName of Object.keys(workflowData.jobs ?? {})) {
       const job = workflowData.jobs[jobName];
       if (job.strategy?.matrix && typeof job.strategy.matrix === "object" && job.strategy.matrix[variable]) {
-        (0, import_node_console.info)(
+        (0, import_core.info)(
           `Updating ${variable} in jobs.${jobName} of workflow ${(0, import_node_path.basename)(
             path
           )}`
@@ -32061,8 +32061,9 @@ async function githubWorkflows(versions2, variable, cwd = process.cwd()) {
 }
 
 // src/updaters/packageJson.ts
-var import_node_console2 = require("console");
+var import_core2 = __toESM(require_core(), 1);
 var import_promises2 = require("fs/promises");
+var import_node_os = require("os");
 var import_node_path2 = require("path");
 var PACKAGE_PATH = "package.json";
 async function getPackageJson(cwd = process.cwd()) {
@@ -32079,18 +32080,18 @@ async function packageJson(versions2, cwd = process.cwd()) {
     return;
   }
   if (packageJson2.engines && packageJson2.engines["node"]) {
-    (0, import_node_console2.info)(`Updating engines.node in package.json`);
+    (0, import_core2.info)(`Updating engines.node in package.json`);
     packageJson2.engines["node"] = `>=${versions2[0]}`;
     await (0, import_promises2.writeFile)(
       (0, import_node_path2.join)(cwd, PACKAGE_PATH),
-      JSON.stringify(packageJson2, void 0, 2),
+      JSON.stringify(packageJson2, void 0, 2) + import_node_os.EOL,
       "utf8"
     );
   }
 }
 
 // src/versions.ts
-var import_core4 = __toESM(require_core(), 1);
+var import_core6 = __toESM(require_core(), 1);
 
 // node_modules/all-node-versions/build/src/main.js
 var import_node_process9 = require("process");
@@ -34022,7 +34023,7 @@ var import_node_https = __toESM(require("https"), 1);
 // node_modules/cacheable-lookup/source/index.js
 var import_node_dns = require("dns");
 var import_node_util2 = require("util");
-var import_node_os = __toESM(require("os"), 1);
+var import_node_os2 = __toESM(require("os"), 1);
 var { Resolver: AsyncResolver } = import_node_dns.promises;
 var kCacheableLookupCreateConnection = Symbol("cacheableLookupCreateConnection");
 var kCacheableLookupInstance = Symbol("cacheableLookupInstance");
@@ -34045,7 +34046,7 @@ var map4to6 = (entries2) => {
 var getIfaceInfo = () => {
   let has4 = false;
   let has6 = false;
-  for (const device of Object.values(import_node_os.default.networkInterfaces())) {
+  for (const device of Object.values(import_node_os2.default.networkInterfaces())) {
     for (const iface of device) {
       if (iface.internal) {
         continue;
@@ -37073,7 +37074,7 @@ var ansi_styles_default = ansiStyles;
 
 // node_modules/chalk/source/vendor/supports-color/index.js
 var import_node_process5 = __toESM(require("process"), 1);
-var import_node_os2 = __toESM(require("os"), 1);
+var import_node_os3 = __toESM(require("os"), 1);
 var import_node_tty = __toESM(require("tty"), 1);
 function hasFlag(flag, argv = globalThis.Deno ? globalThis.Deno.args : import_node_process5.default.argv) {
   const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
@@ -37138,7 +37139,7 @@ function _supportsColor(haveStream, { streamIsTTY, sniffFlags = true } = {}) {
     return min;
   }
   if (import_node_process5.default.platform === "win32") {
-    const osRelease = import_node_os2.default.release().split(".");
+    const osRelease = import_node_os3.default.release().split(".");
     if (Number(osRelease[0]) >= 10 && Number(osRelease[2]) >= 10586) {
       return Number(osRelease[2]) >= 14931 ? 3 : 2;
     }
@@ -38055,13 +38056,13 @@ var getRecursiveNvmAlias = async function(alias, allNodeOpts) {
 var import_semver5 = __toESM(require_semver2(), 1);
 
 // src/nodeSchedule.ts
-var import_core3 = __toESM(require_core(), 1);
+var import_core5 = __toESM(require_core(), 1);
 var import_date_fns = __toESM(require_date_fns(), 1);
 var import_semver4 = __toESM(require_semver2(), 1);
 var SCHEDULE_URL = "https://raw.githubusercontent.com/nodejs/Release/master/schedule.json";
 var cache;
 async function fetch() {
-  (0, import_core3.info)("Fetching Node schedule");
+  (0, import_core5.info)("Fetching Node schedule");
   return source_default2.get(SCHEDULE_URL).json();
 }
 async function schedule() {
@@ -38079,7 +38080,7 @@ function majorEolMap(schedule2) {
 
 // src/versions.ts
 async function resolve(versions2) {
-  (0, import_core4.info)("Resolving Node versions");
+  (0, import_core6.info)("Resolving Node versions");
   return Promise.all(versions2.map((version2) => nodeVersionAlias(version2)));
 }
 function toMajor(versions2) {
@@ -38094,7 +38095,7 @@ async function filterEol(versions2) {
 
 // src/updateNodeVersions.ts
 async function updateNodeVersions(inputs2) {
-  (0, import_core5.info)(`Inputs:
+  (0, import_core7.info)(`Inputs:
 ${JSON.stringify(inputs2, void 0, 2)}`);
   const filter = inputs2.versionsFilterEol ? filterEol : identity_default;
   const outputs = {
@@ -38107,7 +38108,7 @@ ${JSON.stringify(inputs2, void 0, 2)}`);
     toMajor,
     filter
   )(inputs2.versions);
-  (0, import_core5.info)(`Outputs:
+  (0, import_core7.info)(`Outputs:
 ${JSON.stringify(outputs, void 0, 2)}`);
   if (inputs2.updatersWorkflows) {
     await githubWorkflows(outputs.versions, inputs2.updatersWorkflowsVariable);
@@ -38119,11 +38120,11 @@ ${JSON.stringify(outputs, void 0, 2)}`);
 }
 
 // src/index.ts
-var versions = (0, import_core6.getMultilineInput)("versions");
-var versionsFilterEol = (0, import_core6.getBooleanInput)("versions.filter-eol");
-var updatersWorkflows = (0, import_core6.getBooleanInput)("updaters.workflows");
-var updatersWorkflowsVariable = (0, import_core6.getInput)("updaters.workflows.variable");
-var updatersEngines = (0, import_core6.getBooleanInput)("updaters.engines");
+var versions = (0, import_core8.getMultilineInput)("versions");
+var versionsFilterEol = (0, import_core8.getBooleanInput)("versions.filter-eol");
+var updatersWorkflows = (0, import_core8.getBooleanInput)("updaters.workflows");
+var updatersWorkflowsVariable = (0, import_core8.getInput)("updaters.workflows.variable");
+var updatersEngines = (0, import_core8.getBooleanInput)("updaters.engines");
 var inputs = {
   versions,
   versionsFilterEol,
@@ -38133,6 +38134,6 @@ var inputs = {
 };
 updateNodeVersions(inputs).then(
   (outputs) => Object.entries(outputs).forEach(([key, value]) => {
-    (0, import_core6.setOutput)(key, value);
+    (0, import_core8.setOutput)(key, value);
   })
-).catch(import_core6.setFailed);
+).catch(import_core8.setFailed);
