@@ -1,5 +1,6 @@
-import { info } from "node:console";
+import { info } from "@actions/core";
 import { readFile, writeFile } from "node:fs/promises";
+import { EOL } from "node:os";
 import { join } from "node:path";
 import type { PackageJson } from "../PackageJson.js";
 
@@ -28,7 +29,7 @@ export async function packageJson(versions: number[], cwd = process.cwd()) {
 
     await writeFile(
       join(cwd, PACKAGE_PATH),
-      JSON.stringify(packageJson, undefined, 2),
+      JSON.stringify(packageJson, undefined, 2) + EOL,
       "utf8"
     );
   }

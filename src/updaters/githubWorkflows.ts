@@ -1,6 +1,6 @@
+import { info } from "@actions/core";
 import { updateYamlDocument } from "@atomist/yaml-updater";
 import { load } from "js-yaml";
-import { info } from "node:console";
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { basename, join } from "node:path";
 import type { GithubWorkflow } from "../GithubWorkflow.js";
