@@ -21,3 +21,7 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn test
+      - uses: ./
+      - run: |
+          find .github/workflows/ -type f | xargs tail -n +1
+          cat package.json

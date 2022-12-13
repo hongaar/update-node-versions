@@ -1,4 +1,5 @@
-import { dump, load } from "js-yaml";
+import { updateYamlDocument } from "@atomist/yaml-updater";
+import { load } from "js-yaml";
 import { info } from "node:console";
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { basename, join } from "node:path";
@@ -7,14 +8,14 @@ import type { GithubWorkflow } from "../GithubWorkflow.js";
 const WORKFLOWS_DIRECTORY = ".github/workflows";
 
 async function getWorkflows(cwd = process.cwd()) {
-  const workflows = new Map<string, GithubWorkflow>();
+  const workflows = new Set<string>();
 
   try {
     const files = await readdir(join(cwd, WORKFLOWS_DIRECTORY));
     const paths = files.map((file) => join(cwd, WORKFLOWS_DIRECTORY, file));
 
     for (const path of paths) {
-      workflows.set(path, load(await readFile(path, "utf8")) as GithubWorkflow);
+      workflows.add(path);
     }
   } catch {}
 
@@ -28,31 +29,50 @@ export async function githubWorkflows(
 ) {
   const workflows = await getWorkflows(cwd);
 
-  for (const path of workflows.keys()) {
-    const workflow = workflows.get(path)!;
+  for (const path of workflows.values()) {
+    let workflowContents = await readFile(path, "utf8");
+    const workflowData = load(workflowContents) as GithubWorkflow;
     let needsSave = false;
 
     // Iterate jobs
-    for (const jobName of Object.keys(workflow.jobs ?? {})) {
-      const job = workflow.jobs[jobName]!;
+    for (const jobName of Object.keys(workflowData.jobs ?? {})) {
+      const job = workflowData.jobs[jobName]!;
 
-      // If we have a matrix strategy, search for the variable
-      if (job.strategy?.matrix && typeof job.strategy.matrix === "object") {
-        if (job.strategy.matrix[variable]) {
-          info(
-            `Updating ${variable} in jobs.${jobName} of workflow ${basename(
-              path
-            )}`
-          );
+      // If we have a matrix strategy and our variable is found, update it
+      if (
+        job.strategy?.matrix &&
+        typeof job.strategy.matrix === "object" &&
+        job.strategy.matrix[variable]
+      ) {
+        info(
+          `Updating ${variable} in jobs.${jobName} of workflow ${basename(
+            path
+          )}`
+        );
 
-          job.strategy.matrix[variable] = versions;
-          needsSave = true;
-        }
+        workflowContents = updateYamlDocument(
+          {
+            jobs: {
+              [jobName]: {
+                strategy: {
+                  matrix: {
+                    [variable]: versions,
+                  },
+                },
+              },
+            },
+          },
+          workflowContents,
+          { keepArrayIndent: true }
+        );
+
+        needsSave = true;
       }
     }
 
-    if (needsSave) {
-      await writeFile(path, dump(workflow), "utf8");
+    // Save changes if needed
+    if (needsSave === true) {
+      await writeFile(path, workflowContents);
     }
   }
 }

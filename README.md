@@ -38,6 +38,11 @@ jobs:
       - uses: hongaar/update-node-versions@v1
       - uses: peter-evans/create-pull-request@v4
         with:
+          title: Update Node.js versions
+          body: |
+            Automated changes by
+            [update-node-versions](https://github.com/hongaar/update-node-versions)
+            GitHub action
           token: ${{ secrets.GH_PAT }}
 ```
 
