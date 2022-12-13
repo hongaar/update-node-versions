@@ -1,30 +1,34 @@
 # [1.1.0](https://github.com/hongaar/update-node-versions/compare/v1.0.1...v1.1.0) (2022-12-13)
 
-
 ### Features
 
-* initial implementation ([#3](https://github.com/hongaar/update-node-versions/issues/3)) ([786760f](https://github.com/hongaar/update-node-versions/commit/786760f1982c6910da6c37c65c9d3415a0fefa10))
+- initial implementation
+  ([#3](https://github.com/hongaar/update-node-versions/issues/3))
+  ([786760f](https://github.com/hongaar/update-node-versions/commit/786760f1982c6910da6c37c65c9d3415a0fefa10))
 
 # [1.1.0](https://github.com/hongaar/update-node-versions/compare/v1.0.1...v1.1.0) (2022-12-13)
 
-
 ### Features
 
-* initial implementation ([#3](https://github.com/hongaar/update-node-versions/issues/3)) ([786760f](https://github.com/hongaar/update-node-versions/commit/786760f1982c6910da6c37c65c9d3415a0fefa10))
+- initial implementation
+  ([#3](https://github.com/hongaar/update-node-versions/issues/3))
+  ([786760f](https://github.com/hongaar/update-node-versions/commit/786760f1982c6910da6c37c65c9d3415a0fefa10))
 
 # [1.1.0](https://github.com/hongaar/update-node-versions/compare/v1.0.1...v1.1.0) (2022-12-13)
 
-
 ### Features
 
-* initial implementation ([#3](https://github.com/hongaar/update-node-versions/issues/3)) ([786760f](https://github.com/hongaar/update-node-versions/commit/786760f1982c6910da6c37c65c9d3415a0fefa10))
+- initial implementation
+  ([#3](https://github.com/hongaar/update-node-versions/issues/3))
+  ([786760f](https://github.com/hongaar/update-node-versions/commit/786760f1982c6910da6c37c65c9d3415a0fefa10))
 
 # [1.1.0](https://github.com/hongaar/update-node-versions/compare/v1.0.1...v1.1.0) (2022-12-13)
 
-
 ### Features
 
-* initial implementation ([#3](https://github.com/hongaar/update-node-versions/issues/3)) ([786760f](https://github.com/hongaar/update-node-versions/commit/786760f1982c6910da6c37c65c9d3415a0fefa10))
+- initial implementation
+  ([#3](https://github.com/hongaar/update-node-versions/issues/3))
+  ([786760f](https://github.com/hongaar/update-node-versions/commit/786760f1982c6910da6c37c65c9d3415a0fefa10))
 
 ## [1.0.1](https://github.com/hongaar/update-node-versions/compare/v1.0.0...v1.0.1) (2022-12-12)
 

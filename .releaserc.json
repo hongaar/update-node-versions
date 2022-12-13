@@ -14,7 +14,12 @@
     [
       "@semantic-release/git",
       {
-        "assets": ["action.yml", "dist/index.cjs"],
+        "assets": [
+          "CHANGELOG.md",
+          "package.json",
+          "action.yml",
+          "dist/index.cjs"
+        ],
         "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}\n\n[skip ci]"
       }
     ]
