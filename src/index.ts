@@ -1,36 +1,28 @@
 import {
+  getBooleanInput,
   getInput,
   getMultilineInput,
-  info,
   setFailed,
   setOutput,
 } from "@actions/core";
 
-async function run() {
-  const versions = getMultilineInput("versions");
-  const versionsFilterEol = getInput("versions.filter-eol");
-  const updatersWorkflows = getInput("updaters.workflows");
-  const updatersWorkflowsVariable = getInput("updaters.workflows.variable");
-  const updatersEngines = getInput("updaters.engines");
+import { updateNodeVersions } from "./updateNodeVersions.js";
 
-  console.log({
-    versions,
-    versionsFilterEol,
-    updatersWorkflows,
-    updatersWorkflowsVariable,
-    updatersEngines,
-  });
+const versions = getMultilineInput("versions");
+const versionsFilterEol = getBooleanInput("versions.filter-eol");
+const updatersWorkflows = getBooleanInput("updaters.workflows");
+const updatersWorkflowsVariable = getInput("updaters.workflows.variable");
+const updatersEngines = getBooleanInput("updaters.engines");
 
-  const versionsOutput = [14, 16, 18];
+const inputs = {
+  versions,
+  versionsFilterEol,
+  updatersWorkflows,
+  updatersWorkflowsVariable,
+  updatersEngines,
+};
 
-  info("Updating Node versions complete");
-
-  return {
-    versions: versionsOutput,
-  };
-}
-
-run()
+updateNodeVersions(inputs)
   .then((outputs) =>
     Object.entries(outputs).forEach(([key, value]) => {
       setOutput(key, value);

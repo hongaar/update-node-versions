@@ -30,7 +30,7 @@ outputs:
     description: The Node versions to update to as stringified JSON array
 runs:
   using: node16
-  main: dist/index.js
+  main: dist/index.cjs
 branding:
   icon: arrow-up
   color: green
