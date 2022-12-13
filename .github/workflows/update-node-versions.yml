@@ -22,8 +22,8 @@ jobs:
       - uses: peter-evans/create-pull-request@v4
         with:
           title: Update Node.js versions
-          body: >
-            Automated changes by
-            [update-node-versions](https://github.com/hongaar/update-node-versions)
-            GitHub action
+          body: |
+            Automated changes by [update-node-versions](https://github.com/hongaar/pdate-node-versions) GitHub action
+
+            BREAKING CHANGE: This updates the supported node.js versions
           token: ${{ secrets.GH_PAT }}
