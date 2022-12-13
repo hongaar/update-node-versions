@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/hongaar/update-node-versions/compare/v1.1.3...v1.1.4) (2022-12-13)
+
+
+### Bug Fixes
+
+* re-add assets ([416e7f3](https://github.com/hongaar/update-node-versions/commit/416e7f38f67463e51c71311bdf47305e610011ee))
+
 # [1.1.0](https://github.com/hongaar/update-node-versions/compare/v1.0.1...v1.1.0) (2022-12-13)
 
 ### Features
