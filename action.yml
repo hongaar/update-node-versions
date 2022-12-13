@@ -1,4 +1,5 @@
 name: update-node-versions
+author: Joram van den Boezem
 description: Description of update-node-versions action
 inputs:
   versions:
@@ -29,4 +30,7 @@ outputs:
     description: The Node versions to update to as stringified JSON array
 runs:
   using: node16
-  main: dist/index.js
+  main: dist/index.cjs
+branding:
+  icon: arrow-up
+  color: green

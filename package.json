@@ -5,15 +5,13 @@
   "license": "MIT",
   "author": "Joram van den Boezem <joram@vandenboezem.nl>",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "main": "dist/index.cjs",
   "files": [
-    "dist",
-    "types"
+    "dist"
   ],
   "scripts": {
     "build": "yarn clean && yarn build:typecheck && yarn build:bundle",
-    "build:bundle": "esbuild --bundle --platform=node --target=es2022 --outdir=dist src/index.ts",
+    "build:bundle": "esbuild --bundle --platform=node --format=cjs --target=es2020 --outfile=dist/index.cjs src/index.ts",
     "build:typecheck": "tsc --noEmit",
     "build:watch": "tsc --watch",
     "clean": "rm -rf dist",
@@ -22,7 +20,7 @@
     "format:check": "prettier --check --ignore-unknown .",
     "prepublish": "yarn build",
     "release": "semantic-release",
-    "test": "echo 'not implemented'",
+    "test": "xv --loader=ts-node/esm test",
     "todos": "leasot --exit-nicely --reporter markdown --ignore \"**/node_modules\" \"**/*.ts\" > TODO.md"
   },
   "lint-staged": {
@@ -30,13 +28,22 @@
   },
   "dependencies": {
     "@actions/core": "1.10.0",
-    "node-version-alias": "3.4.0"
+    "date-fns": "2.29.3",
+    "got": "12.5.3",
+    "js-yaml": "4.1.0",
+    "node-version-alias": "3.4.0",
+    "p-pipe": "4.0.0",
+    "ramda": "0.28.0",
+    "semver": "7.3.8"
   },
   "devDependencies": {
     "@semantic-release/changelog": "6.0.2",
     "@semantic-release/git": "10.0.1",
+    "@types/js-yaml": "^4",
     "@types/node": "18.11.13",
     "@types/prettier": "^2",
+    "@types/ramda": "^0",
+    "@types/semver": "^7",
     "doctoc": "2.2.1",
     "esbuild": "0.16.4",
     "husky": "8.0.2",
@@ -46,7 +53,10 @@
     "prettier": "2.8.1",
     "semantic-release": "19.0.5",
     "semantic-release-yarn": "0.3.0",
-    "typescript": "4.9.4"
+    "tempy": "3.0.0",
+    "ts-node": "10.9.1",
+    "typescript": "4.9.4",
+    "xv": "2.0.0"
   },
   "packageManager": "yarn@3.3.0",
   "moker": {
@@ -60,7 +70,8 @@
       "doctoc",
       "todos",
       "typescript",
-      "esbuild"
+      "esbuild",
+      "xv"
     ]
   }
 }

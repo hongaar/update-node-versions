@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn build && git add dist
 yarn lint-staged
 yarn doctoc && git add README.md
 yarn prettier --write README.md && git add README.md
