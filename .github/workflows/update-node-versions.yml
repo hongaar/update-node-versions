@@ -22,4 +22,5 @@ jobs:
       - uses: ./
       - uses: peter-evans/create-pull-request@v4
         with:
+          token: ${{ secrets.GH_PAT }}
           base: main

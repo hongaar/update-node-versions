@@ -1,10 +1,7 @@
 # update-node-versions ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hongaar/update-node-versions?label=latest%20version&sort=semver)
 
 **A GitHub Action to automatically update you repository to the latest Node
-versions. Currently supports updating GitHub workflows and package.json
-`engines`.**
-
-🚧 In development
+versions. Supports updating GitHub workflows and package.json `engines`.**
 
 ## Table of contents
 
@@ -40,7 +37,15 @@ jobs:
       - uses: actions/checkout@v3
       - uses: hongaar/update-node-versions@v1
       - uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
 ```
+
+> **Note**: If you're using `updaters.workflows` (enabled by default), the
+> `peter-evans/create-pull-request` action needs a Personal Access Token with
+> write access to 'pull requests' and 'workflows' (fine-grained tokens) or
+> 'repo'/'public_repo' and 'workflow' scopes (classic token). The default
+> `secrets.GITHUB_TOKEN` does not have the required permissions.
 
 ## Versions
 
