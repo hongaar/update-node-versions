@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/hongaar/update-node-versions/compare/v1.1.4...v1.2.0) (2022-12-13)
+
+
+### Features
+
+* update node.js versions ([#8](https://github.com/hongaar/update-node-versions/issues/8)) ([55e606f](https://github.com/hongaar/update-node-versions/commit/55e606f37be42e08b88da28afa8c6ab0aa875659))
+
 ## [1.1.4](https://github.com/hongaar/update-node-versions/compare/v1.1.3...v1.1.4) (2022-12-13)
 
 
