@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/hongaar/update-node-versions/compare/v1.2.0...v1.2.1) (2022-12-13)
+
+
+### Bug Fixes
+
+* write eol in package.json ([18c1853](https://github.com/hongaar/update-node-versions/commit/18c1853a4d50bf03fede21f6c8c037d09508d362))
+
 # [1.2.0](https://github.com/hongaar/update-node-versions/compare/v1.1.4...v1.2.0) (2022-12-13)
 
 
