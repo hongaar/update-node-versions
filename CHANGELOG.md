@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/hongaar/update-node-versions/compare/v1.2.1...v1.2.2) (2022-12-14)
+
+
+### Bug Fixes
+
+* try with release ([7a6cc51](https://github.com/hongaar/update-node-versions/commit/7a6cc51e237caebf96bb891b977a0abbf0dc4b30))
+
 ## [1.2.1](https://github.com/hongaar/update-node-versions/compare/v1.2.0...v1.2.1) (2022-12-13)
 
 
