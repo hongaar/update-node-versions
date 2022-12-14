@@ -3,7 +3,7 @@ name: update-major-tag
 on:
   push:
     tags:
-      - "v*"
+      - "*"
 
 jobs:
   update-major-tag:
