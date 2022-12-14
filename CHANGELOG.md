@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/hongaar/update-node-versions/compare/v1.2.2...v1.2.3) (2022-12-14)
+
+
+### Bug Fixes
+
+* use forked action update-major-version-tag ([c665a27](https://github.com/hongaar/update-node-versions/commit/c665a27496478703fc9800f784de23481d57099a))
+
 ## [1.2.2](https://github.com/hongaar/update-node-versions/compare/v1.2.1...v1.2.2) (2022-12-14)
 
 
