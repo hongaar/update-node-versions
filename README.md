@@ -88,15 +88,15 @@ updaters are enabled. These updaters are available:
 
 ## Inputs
 
-| name                          | required | default                              | description                                                                                                                                                  |
-| ----------------------------- | -------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `versions`                    |          | <pre>lts<br/>lts/-1<br/>lts/-2</pre> | Node versions to select, should be resolvable by [node-version-alias](https://www.npmjs.com/package/node-version-alias). Specify each version on a new line. |
-| `versions.filter-eol`         |          | `true`                               | Filter out Node versions which are end-of-life. [Source](https://github.com/nodejs/Release/blob/main/schedule.json) used for filtering.                      |
-| `updaters.workflows`          |          | `true`                               | Update GitHub workflows.                                                                                                                                     |
-| `updaters.workflows.variable` |          | `"node-version"`                     | Use this name as the matrix strategy variable to update the Node versions in.                                                                                |
-| `updaters.engines`            |          | `true`                               | Update package.json `engines`.                                                                                                                               |
+| name                          | default                              | description                                                                                                                                                  |
+| ----------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `versions`                    | <pre>lts<br/>lts/-1<br/>lts/-2</pre> | Node versions to select, should be resolvable by [node-version-alias](https://www.npmjs.com/package/node-version-alias). Specify each version on a new line. |
+| `versions.filter-eol`         | `true`                               | Filter out Node versions which are end-of-life. [Source](https://github.com/nodejs/Release/blob/main/schedule.json) used for filtering.                      |
+| `updaters.workflows`          | `true`                               | Update GitHub workflows.                                                                                                                                     |
+| `updaters.workflows.variable` | `"node-version"`                     | Use this name as the matrix strategy variable to update the Node versions in.                                                                                |
+| `updaters.engines`            | `true`                               | Update package.json `engines`.                                                                                                                               |
 
-Example:
+All inputs are optional. Example:
 
 ```yaml
 - uses: hongaar/update-node-versions@v1
