@@ -1,6 +1,7 @@
-name: update-node-versions
+name: Update Node.js versions
 author: Joram van den Boezem
-description: Description of update-node-versions action
+description:
+  Update Node.js versions used in GitHub Actions workflows and package.json
 inputs:
   versions:
     description: Node versions to select
