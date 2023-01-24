@@ -1,7 +1,8 @@
 name: Update Node.js versions
 author: Joram van den Boezem
 description:
-  Update Node.js versions used in GitHub Actions workflows and package.json
+  Update you repository to the latest Node.js versions. Supports updating GitHub
+  workflows and package.json engines.
 inputs:
   versions:
     description: Node versions to select

@@ -1,6 +1,6 @@
 # update-node-versions ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hongaar/update-node-versions?label=latest%20version&sort=semver)
 
-**A GitHub Action to automatically update you repository to the latest Node
+**A GitHub Action to automatically update you repository to the latest Node.js
 versions. Supports updating GitHub workflows and package.json `engines`.**
 
 ## Table of contents
