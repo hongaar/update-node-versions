@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/hongaar/update-node-versions/compare/v1.2.3...v1.3.0) (2023-04-30)
+
+
+### Features
+
+* add latest to default ([#12](https://github.com/hongaar/update-node-versions/issues/12)) ([ca4fd37](https://github.com/hongaar/update-node-versions/commit/ca4fd37e2f02398eb7a1f98cb02d1d53e8dd3736))
+
 ## [1.2.3](https://github.com/hongaar/update-node-versions/compare/v1.2.2...v1.2.3) (2022-12-14)
 
 
