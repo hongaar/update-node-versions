@@ -10,7 +10,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "scripts": {
     "build": "yarn clean && yarn build:typecheck && yarn build:bundle",
