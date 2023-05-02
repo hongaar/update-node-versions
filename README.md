@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: hongaar/update-node-versions@v1
+      - uses: hongaar/update-node-versions@v2
       - uses: peter-evans/create-pull-request@v4
         with:
           title: "feat: update node.js versions"
