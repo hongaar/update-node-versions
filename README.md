@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hongaar/update-node-versions@v2
-      - uses: peter-evans/create-pull-request@v4
+      - uses: peter-evans/create-pull-request@v5
         with:
           title: "feat: update node.js versions"
           body: |
