@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/hongaar/update-node-versions/compare/v2.1.0...v2.1.1) (2023-05-09)
+
+
+### Bug Fixes
+
+* ${versions} replacement ([#14](https://github.com/hongaar/update-node-versions/issues/14)) ([3314344](https://github.com/hongaar/update-node-versions/commit/3314344afffa717b1d70c0bcf37cd2510a8fefbf))
+
 # [2.1.0](https://github.com/hongaar/update-node-versions/compare/v2.0.0...v2.1.0) (2023-05-09)
 
 
