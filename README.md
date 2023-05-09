@@ -137,4 +137,4 @@ All inputs are optional. Example:
 
 | name       | description                                                                      |
 | ---------- | -------------------------------------------------------------------------------- |
-| `versions` | The Node versions to update to as stringified JSON array (e.g. `"[14, 16, 18]"`) |
+| `versions` | The Node versions to update to as stringified JSON array (e.g. `"[16, 18, 20]"`) |
