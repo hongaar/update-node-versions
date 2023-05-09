@@ -62,8 +62,9 @@ Node versions.
 
 ## Updaters
 
-You can configure which parts of your repository are updated. By default, all
-updaters are enabled. These updaters are available:
+You can configure which parts of your repository are updated. By default, the
+**GitHub workflows** and **Engines** updaters are enabled. These updaters are
+available:
 
 - **GitHub workflows**  
   This will scan all your GitHub workflows for a `node-version` variable in a
@@ -74,7 +75,7 @@ updaters are enabled. These updaters are available:
     matrix:
       node-version: [14, 16, 18]
   ```
-- **package.json**  
+- **Engines**  
   This will update the `engines` field in your `package.json` file. It will use
   the lowest Node version as the minimal supported version.
   ```json
@@ -84,6 +85,20 @@ updaters are enabled. These updaters are available:
     }
   }
   ```
+- **Files**  
+  This will update arbitrary files in your repository. You can specify a glob
+  pattern of files to update, a regex to match and a replacement template to
+  replace the matches with. You can use these tags in the template:
+
+  | tag                | output example |
+  | ------------------ | -------------- |
+  | `${versionsArray}` | `[14, 16, 18]` |
+  | `${minVersion}`    | `14`           |
+  | `${maxVersion}`    | `20`           |
+
+  > **Note**: You can specify a list of glob patterns by specifying each pattern
+  > on a new line. If you also provide a list regexes and templates, each glob
+  > pattern will use the respective line in the regex and template inputs.
 
 ## Inputs
 
@@ -94,6 +109,10 @@ updaters are enabled. These updaters are available:
 | `updaters.workflows`          | `true`                                          | Update GitHub workflows.                                                                                                                                     |
 | `updaters.workflows.variable` | `"node-version"`                                | Use this name as the matrix strategy variable to update the Node versions in.                                                                                |
 | `updaters.engines`            | `true`                                          | Update package.json `engines`.                                                                                                                               |
+| `updaters.files`              | `false`                                         | Update arbitrary files.                                                                                                                                      |
+| `updaters.files.glob`         |                                                 | Glob pattern for files to update.                                                                                                                            |
+| `updaters.files.regex`        |                                                 | Matches will be replaced with the template.                                                                                                                  |
+| `updaters.files.template`     |                                                 | Replace matches with this template.                                                                                                                          |
 
 All inputs are optional. Example:
 

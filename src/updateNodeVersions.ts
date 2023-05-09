@@ -2,8 +2,9 @@ import { info } from "@actions/core";
 import pPipe from "p-pipe";
 import { identity, uniq } from "ramda";
 import { sort } from "semver";
+import { engines } from "./updaters/engines.js";
+import { files } from "./updaters/files.js";
 import { githubWorkflows } from "./updaters/githubWorkflows.js";
-import { packageJson } from "./updaters/packageJson.js";
 import { filterEol, resolve, toMajor } from "./versions.js";
 
 type Inputs = {
@@ -12,6 +13,10 @@ type Inputs = {
   updatersWorkflows: boolean;
   updatersWorkflowsVariable: string;
   updatersEngines: boolean;
+  updatersFiles: boolean;
+  updatersFilesGlob: string[];
+  updatersFilesRegex: string[];
+  updatersFilesTemplate: string[];
 };
 
 type Outputs = {
@@ -42,7 +47,16 @@ export async function updateNodeVersions(inputs: Inputs) {
   }
 
   if (inputs.updatersEngines) {
-    await packageJson(outputs.versions);
+    await engines(outputs.versions);
+  }
+
+  if (inputs.updatersFiles) {
+    await files(
+      outputs.versions,
+      inputs.updatersFilesGlob,
+      inputs.updatersFilesRegex,
+      inputs.updatersFilesTemplate
+    );
   }
 
   return outputs;

@@ -13,6 +13,10 @@ const versionsFilterEol = getBooleanInput("versions.filter-eol");
 const updatersWorkflows = getBooleanInput("updaters.workflows");
 const updatersWorkflowsVariable = getInput("updaters.workflows.variable");
 const updatersEngines = getBooleanInput("updaters.engines");
+const updatersFiles = getBooleanInput("updaters.files");
+const updatersFilesGlob = getMultilineInput("updaters.files.glob");
+const updatersFilesRegex = getMultilineInput("updaters.files.regex");
+const updatersFilesTemplate = getMultilineInput("updaters.files.template");
 
 const inputs = {
   versions,
@@ -20,6 +24,10 @@ const inputs = {
   updatersWorkflows,
   updatersWorkflowsVariable,
   updatersEngines,
+  updatersFiles,
+  updatersFilesGlob,
+  updatersFilesRegex,
+  updatersFilesTemplate,
 };
 
 updateNodeVersions(inputs)

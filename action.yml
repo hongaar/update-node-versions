@@ -28,6 +28,19 @@ inputs:
     description: Update package.json `engines`
     required: false
     default: true
+  updaters.files:
+    description: Update arbitrary files
+    required: false
+    default: false
+  updaters.files.glob:
+    description: Glob pattern for files to update
+    required: false
+  updaters.files.regex:
+    description: Matches will be replaced with the template
+    required: false
+  updaters.files.template:
+    description: Replace matches with this template
+    required: false
 outputs:
   versions:
     description: The Node versions to update to as stringified JSON array

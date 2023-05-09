@@ -16,7 +16,7 @@ async function getPackageJson(cwd = process.cwd()) {
   return;
 }
 
-export async function packageJson(versions: number[], cwd = process.cwd()) {
+export async function engines(versions: number[], cwd = process.cwd()) {
   const packageJson = await getPackageJson(cwd);
 
   if (!packageJson) {
