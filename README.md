@@ -1,7 +1,8 @@
 # update-node-versions ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hongaar/update-node-versions?label=latest%20version&sort=semver)
 
 **A GitHub Action to automatically update you repository to the latest Node.js
-versions. Supports updating GitHub workflows and package.json `engines`.**
+versions. Supports updating GitHub workflows, package.json `engines` and
+arbitrary files.**
 
 ## Table of contents
 
@@ -91,12 +92,12 @@ available:
   replace the matches with. Files in `node_modules` are ignored. You can use
   these tags in the template:
 
-  | tag                | output example |
-  | ------------------ | -------------- |
-  | `$1`, `$2`, etc.   | Match group    |
-  | `${versionsArray}` | `[14, 16, 18]` |
-  | `${minVersion}`    | `14`           |
-  | `${maxVersion}`    | `20`           |
+  | tag              | output example |
+  | ---------------- | -------------- |
+  | `$1`, `$2`, etc. | Match group    |
+  | `${versions}`    | `14, 16, 18`   |
+  | `${minVersion}`  | `14`           |
+  | `${maxVersion}`  | `20`           |
 
   > **Note**: You can specify a list of glob patterns by specifying each pattern
   > on a new line. If you also provide a list regexes and templates, each glob
