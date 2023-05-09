@@ -16,8 +16,8 @@ async function replace(
     .replaceAll("${maxVersion}", Math.max(...versions).toString())
 
     // Undocumented
-    .replaceAll("$!{maxVersion}", "${versions}")
-    .replaceAll("$!{maxVersion}", "${minVersion}")
+    .replaceAll("$!{versions}", "${versions}")
+    .replaceAll("$!{minVersion}", "${minVersion}")
     .replaceAll("$!{maxVersion}", "${maxVersion}");
 
   info(
