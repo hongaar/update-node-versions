@@ -28,18 +28,21 @@ jobs:
             README.md
             README.md
             README.md
+            README.md
           updaters.files.regex: |
             node-version: \[[\d,\s]+\]
             "node": ">=\d+"
             \| `\${versions}`(\s+)\| `[\d,\s]+`(\s+)\|
             \| `\${minVersion}`(\s+)\| `\d+`(\s+)\|
             \| `\${maxVersion}`(\s+)\| `\d+`(\s+)\|
+            e\.g\. `"\[[\d,\s]+\]"`
           updaters.files.template: |
             node-version: [${versions}]
             "node": ">=${minVersion}"
             | `$!{versions}`$1| `${versions}`$2|
             | `$!{minVersion}`$1| `${minVersion}`$2|
             | `$!{maxVersion}`$1| `${maxVersion}`$2|
+            e.g. `"[${versions}]"`
       - uses: peter-evans/create-pull-request@v4
         with:
           title: "feat: update node.js versions"
