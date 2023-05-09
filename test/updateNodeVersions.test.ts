@@ -18,6 +18,10 @@ export async function testUpdateNodeVersions() {
     updatersWorkflows: true,
     updatersWorkflowsVariable: "node-version",
     updatersEngines: true,
+    updatersFiles: false,
+    updatersFilesGlob: [],
+    updatersFilesRegex: [],
+    updatersFilesTemplate: [],
   };
 
   const { versions } = await updateNodeVersions(inputs);

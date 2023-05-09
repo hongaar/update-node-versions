@@ -88,10 +88,12 @@ available:
 - **Files**  
   This will update arbitrary files in your repository. You can specify a glob
   pattern of files to update, a regex to match and a replacement template to
-  replace the matches with. You can use these tags in the template:
+  replace the matches with. Files in `node_modules` are ignored. You can use
+  these tags in the template:
 
   | tag                | output example |
   | ------------------ | -------------- |
+  | `$1`, `$2`, etc.   | Match group    |
   | `${versionsArray}` | `[14, 16, 18]` |
   | `${minVersion}`    | `14`           |
   | `${maxVersion}`    | `20`           |
