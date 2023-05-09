@@ -35437,7 +35437,7 @@ glob.glob = glob;
 var import_promises3 = require("fs/promises");
 var import_node_path2 = require("path");
 async function replace(versions2, cwd, files2, regex, template) {
-  const replacement = template.replaceAll("${minVersion}", Math.min(...versions2).toString()).replaceAll("${maxVersion}", Math.max(...versions2).toString()).replaceAll("${versions}", `[${versions2.join(", ")}]`);
+  const replacement = template.replaceAll("${versions}", `${versions2.join(", ")}`).replaceAll("${minVersion}", Math.min(...versions2).toString()).replaceAll("${maxVersion}", Math.max(...versions2).toString());
   (0, import_core2.info)(
     `Search for "${regex}" and replace with "${replacement}" in these files:
 - ${files2.join(
