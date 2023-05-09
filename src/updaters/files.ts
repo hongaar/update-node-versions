@@ -13,7 +13,12 @@ async function replace(
   const replacement = template
     .replaceAll("${versions}", `${versions.join(", ")}`)
     .replaceAll("${minVersion}", Math.min(...versions).toString())
-    .replaceAll("${maxVersion}", Math.max(...versions).toString());
+    .replaceAll("${maxVersion}", Math.max(...versions).toString())
+
+    // Undocumented
+    .replaceAll("$!{maxVersion}", "${versions}")
+    .replaceAll("$!{maxVersion}", "${minVersion}")
+    .replaceAll("$!{maxVersion}", "${maxVersion}");
 
   info(
     `Search for "${regex}" and replace with "${replacement}" in these files:\n- ${files.join(

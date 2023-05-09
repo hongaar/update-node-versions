@@ -1,6 +1,7 @@
 name: update-node-versions
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "30 7 * * 0"
   push:
@@ -19,6 +20,26 @@ jobs:
       - run: yarn install
       - run: yarn build
       - uses: ./
+        with:
+          updaters.files: true
+          updaters.files.glob: |
+            README.md
+            README.md
+            README.md
+            README.md
+            README.md
+          updaters.files.regex: |
+            node-version: \[[\d,\s]+\]
+            "node": ">=\d+"
+            | `${versions}`(\s+)| `[\d,\s]+`(\s+)|
+            | `${minVersion}`(\s+)| `\d+`(\s+)|
+            | `${maxVersion}`(\s+)| `\d+`(\s+)|
+          updaters.files.template: |
+            node-version: [${versions}]
+            "node": ">=${minVersion}"
+            | `$!{versions}`$1| `[${versions}]+`$2|
+            | `$!{minVersion}`$1| `${minVersion}`$2|
+            | `$!{maxVersion}`$1| `${maxVersion}`$2|
       - uses: peter-evans/create-pull-request@v4
         with:
           title: "feat: update node.js versions"
