@@ -31,9 +31,9 @@ jobs:
           updaters.files.regex: |
             node-version: \[[\d,\s]+\]
             "node": ">=\d+"
-            | `${versions}`(\s+)| `[\d,\s]+`(\s+)|
-            | `${minVersion}`(\s+)| `\d+`(\s+)|
-            | `${maxVersion}`(\s+)| `\d+`(\s+)|
+            \| `\${versions}`(\s+)\| `[\d,\s]+`(\s+)\|
+            \| `\${minVersion}`(\s+)\| `\d+`(\s+)\|
+            \| `\${maxVersion}`(\s+)\| `\d+`(\s+)\|
           updaters.files.template: |
             node-version: [${versions}]
             "node": ">=${minVersion}"
