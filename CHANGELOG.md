@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/hongaar/update-node-versions/compare/v2.1.1...v2.2.0) (2023-10-02)
+
+
+### Features
+
+* update node.js versions ([#19](https://github.com/hongaar/update-node-versions/issues/19)) ([30bba29](https://github.com/hongaar/update-node-versions/commit/30bba29e02bdf223eba4661822073d49d91ef3d8))
+
 ## [2.1.1](https://github.com/hongaar/update-node-versions/compare/v2.1.0...v2.1.1) (2023-05-09)
 
 
