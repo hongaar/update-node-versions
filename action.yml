@@ -45,7 +45,7 @@ outputs:
   versions:
     description: The Node versions to update to as stringified JSON array
 runs:
-  using: node16
+  using: node20
   main: dist/index.cjs
 branding:
   icon: arrow-up
