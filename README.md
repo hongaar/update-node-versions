@@ -74,7 +74,7 @@ available:
   ```yaml
   strategy:
     matrix:
-      node-version: [18, 20]
+      node-version: [18, 20, 21]
   ```
 - **Engines**  
   This will update the `engines` field in your `package.json` file. It will use
@@ -95,9 +95,9 @@ available:
   | tag              | output example |
   | ---------------- | -------------- |
   | `$1`, `$2`, etc. | Match group    |
-  | `${versions}`    | `18, 20`   |
+  | `${versions}`    | `18, 20, 21`   |
   | `${minVersion}`  | `18`           |
-  | `${maxVersion}`  | `20`           |
+  | `${maxVersion}`  | `21`           |
 
   > **Note**: You can specify a list of glob patterns by specifying each pattern
   > on a new line. If you also provide a list regexes and templates, each glob
@@ -137,4 +137,4 @@ All inputs are optional. Example:
 
 | name       | description                                                                      |
 | ---------- | -------------------------------------------------------------------------------- |
-| `versions` | The Node versions to update to as stringified JSON array (e.g. `"[18, 20]"`) |
+| `versions` | The Node versions to update to as stringified JSON array (e.g. `"[18, 20, 21]"`) |
