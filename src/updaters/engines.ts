@@ -16,7 +16,7 @@ async function getPackageJson(cwd = process.cwd()) {
   return;
 }
 
-export async function engines(versions: number[], cwd = process.cwd()) {
+export async function engines(versions: number[], cwd = process.cwd(), fullVersion = false) {
   const packageJson = await getPackageJson(cwd);
 
   if (!packageJson) {
@@ -25,7 +25,7 @@ export async function engines(versions: number[], cwd = process.cwd()) {
 
   if (packageJson.engines && packageJson.engines["node"]) {
     info(`Updating engines.node in package.json`);
-    packageJson.engines["node"] = `>=${versions[0]}`;
+    packageJson.engines["node"] = `>=${fullVersion ? versions.join(".") : versions[0]}`;
 
     await writeFile(
       join(cwd, PACKAGE_PATH),

@@ -28,6 +28,10 @@ inputs:
     description: Update package.json `engines`
     required: false
     default: true
+  updaters.engines.fullVersion:
+    description: Use full semantic versioning for engines
+    required: false
+    default: false
   updaters.files:
     description: Update arbitrary files
     required: false
