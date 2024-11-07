@@ -17,6 +17,7 @@ const updatersFiles = getBooleanInput("updaters.files");
 const updatersFilesGlob = getMultilineInput("updaters.files.glob");
 const updatersFilesRegex = getMultilineInput("updaters.files.regex");
 const updatersFilesTemplate = getMultilineInput("updaters.files.template");
+const updatersEnginesFullVersion = getBooleanInput("updaters.engines.fullVersion");
 
 const inputs = {
   versions,
@@ -28,6 +29,7 @@ const inputs = {
   updatersFilesGlob,
   updatersFilesRegex,
   updatersFilesTemplate,
+  updatersEnginesFullVersion,
 };
 
 updateNodeVersions(inputs)

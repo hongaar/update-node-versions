@@ -86,6 +86,20 @@ available:
     }
   }
   ```
+  If you want to use full semantic versioning for the `engines` field, you can enable the `updaters.engines.fullVersion` input.
+  ```yaml
+  - uses: hongaar/update-node-versions@v2
+    with:
+      updaters.engines.fullVersion: true
+  ```
+  This will update the `engines` field to include the full version.
+  ```json
+  {
+    "engines": {
+      "node": ">=18.0.0"
+    }
+  }
+  ```
 - **Files**  
   This will update arbitrary files in your repository. You can specify a glob
   pattern of files to update, a regex to match and a replacement template to
@@ -112,6 +126,7 @@ available:
 | `updaters.workflows`          | `true`                                          | Update GitHub workflows.                                                                                                                                     |
 | `updaters.workflows.variable` | `"node-version"`                                | Use this name as the matrix strategy variable to update the Node versions in.                                                                                |
 | `updaters.engines`            | `true`                                          | Update package.json `engines`.                                                                                                                               |
+| `updaters.engines.fullVersion`| `false`                                         | Use full semantic versioning for engines.                                                                                                                    |
 | `updaters.files`              | `false`                                         | Update arbitrary files.                                                                                                                                      |
 | `updaters.files.glob`         |                                                 | Glob pattern for files to update.                                                                                                                            |
 | `updaters.files.regex`        |                                                 | Matches will be replaced with the template.                                                                                                                  |

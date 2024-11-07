@@ -17,6 +17,7 @@ type Inputs = {
   updatersFilesGlob: string[];
   updatersFilesRegex: string[];
   updatersFilesTemplate: string[];
+  updatersEnginesFullVersion: boolean;
 };
 
 type Outputs = {
@@ -47,7 +48,7 @@ export async function updateNodeVersions(inputs: Inputs) {
   }
 
   if (inputs.updatersEngines) {
-    await engines(outputs.versions);
+    await engines(outputs.versions, process.cwd(), inputs.updatersEnginesFullVersion);
   }
 
   if (inputs.updatersFiles) {
